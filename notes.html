@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuaderno de Notas & Bitácora de Campo | César Ruiz-Camou</title>
+  <meta name="description" content="Bitácora personal, notas de laboratorio, observaciones en campo en Michoacán, referencias de bibliografía y enlaces sobre sostenibilidad y ACV.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Identity Services SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN SUPERIOR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-name">César Ruiz-Camou</span>
+        <span class="brand-tag">Ciencia & ACV</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="articles.html" class="nav-link">Publicaciones & Artículos</a></li>
+          <li><a href="notes.html" class="nav-link active">Cuaderno de Notas</a></li>
+          <li><a href="about.html" class="nav-link">Sobre Mí</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Botón para redactar con Google Docs -->
+        <a href="editor.html?target=note" class="btn btn-blue btn-sm auth-edit-btn" style="display: none;">
+          <span>✍</span> Editor Docs
+        </a>
+        <button id="openAddNoteBtn" class="btn btn-primary btn-sm">
+          <span>+</span> Entrada Rápida
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CABECERA DE LA BITÁCORA -->
+  <section class="section" style="padding-top: 3.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border-subtle); background: #FAF7F2;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+        <div style="max-width: 760px;">
+          <span style="font-family: var(--font-mono); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--earth-bark);">
+            Digital Garden &amp; Bitácora Abierta
+          </span>
+          <h1 style="margin: 0.75rem 0 1rem;">
+            Cuaderno de notas, <span class="paper-mark">trabajo de campo</span> y referencias.
+          </h1>
+          <p style="font-size: 1.12rem; color: var(--text-secondary); line-height: 1.6;">
+            Un espacio dinámico tipo papel para registrar observaciones directas en vinatas de Michoacán, reflexiones sobre herramientas de software de ciclo de vida (SimaPro, openLCA), fotografías, enlaces y citas bibliográficas.
+          </p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="editor.html?target=note" class="btn btn-blue btn-sm auth-edit-btn" style="display: none;">
+            ✍ Redactar en Vista Google Docs
+          </a>
+          <button id="exportNotesBtn" class="btn btn-secondary btn-sm">
+            💾 Respaldar Bitácora (JSON)
+          </button>
+          <button id="resetAllNotesBtn" class="btn btn-tertiary btn-sm" title="Restablecer a las notas científicas originales">
+            ↺ Restaurar
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUERPO PRINCIPAL DE LA BITÁCORA -->
+  <section class="section">
+    <div class="container">
+      <div class="notes-layout-grid">
+        <!-- BARRA LATERAL CON FILTROS Y BÚSQUEDA -->
+        <aside class="notes-sidebar-card">
+          <div style="margin-bottom: 1.5rem;">
+            <label class="form-label" for="notesSearchInput" style="font-size: 0.85rem; font-family: var(--font-serif); font-size: 1.05rem;">
+              Buscar en Notas
+            </label>
+            <input type="text" id="notesSearchInput" class="form-input" placeholder="Escribe para filtrar...">
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--earth-bark); font-weight: 600; display: block; margin-bottom: 0.75rem;">
+              Filtrar por Tema
+            </span>
+            <div style="display: flex; flex-direction: column; gap: 0.35rem;">
+              <button class="btn btn-tertiary btn-sm tag-filter-btn active" data-tag="all" style="justify-content: flex-start; text-align: left;">
+                📁 Todas las Notas
+              </button>
+              <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="LCA" style="justify-content: flex-start; text-align: left;">
+                📊 Análisis de Ciclo de Vida (ACV)
+              </button>
+              <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="Mezcal" style="justify-content: flex-start; text-align: left;">
+                🌱 Mezcal &amp; Vinatas Michoacán
+              </button>
+              <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="RAEE" style="justify-content: flex-start; text-align: left;">
+                ⚡ RAEE &amp; Indio (In)
+              </button>
+              <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="Biochar" style="justify-content: flex-start; text-align: left;">
+                🍂 Biochar &amp; Carbón en Suelo
+              </button>
+              <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="Metodología" style="justify-content: flex-start; text-align: left;">
+                🔬 Metodología &amp; Software
+              </button>
+            </div>
+          </div>
+
+          <div style="padding: 1.25rem; background: var(--bg-paper); border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-size: 0.82rem; color: var(--text-secondary);">
+            <strong>💡 Persistencia Local:</strong> Las notas nuevas que agregues o edites se guardan automáticamente en tu navegador usando <em>LocalStorage</em>. Puedes exportarlas cuando gustes en formato JSON.
+          </div>
+        </aside>
+
+        <!-- STREAM PRINCIPAL DE NOTAS -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border-subtle);">
+            <div id="notesCountDisplay" style="font-family: var(--font-mono); font-size: 0.88rem; color: var(--earth-bark); font-weight: 500;">
+              Cargando notas...
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <a href="editor.html?target=note" class="btn btn-blue btn-sm auth-edit-btn" style="display: none;">
+                ✍ Editor Docs
+              </a>
+              <button onclick="document.getElementById('openAddNoteBtn').click()" class="btn btn-primary btn-sm">
+                + Entrada Rápida
+              </button>
+            </div>
+          </div>
+
+          <!-- Contenedor dinámico -->
+          <div id="notesContainer" class="notes-list-stream">
+            <!-- Rellenado por app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL: AGREGAR NUEVA NOTA / ENTRADA -->
+  <div id="addNoteModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="font-family: var(--font-serif); font-size: 1.4rem;">Nueva Entrada en Bitácora Científica</h3>
+        <button id="closeAddNoteBtn" class="close-modal-btn">&times;</button>
+      </div>
+
+      <form id="newNoteForm">
+        <div class="form-group">
+          <label class="form-label" for="noteTitleInput">Título de la Entrada *</label>
+          <input type="text" id="noteTitleInput" class="form-input" placeholder="Ej. Medición de pH en lixiviados de bagazo en Etúcuaro" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="noteCategoryInput">Categoría Principal</label>
+            <input type="text" id="noteCategoryInput" class="form-input" placeholder="Ej. Campo & Mezcal, ACV, RAEE">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="noteTagsInput">Etiquetas (separadas por coma)</label>
+            <input type="text" id="noteTagsInput" class="form-input" placeholder="LCA, Michoacán, Datos, Suelo">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="noteContentInput">Contenido / Reflexión Científica *</label>
+          <textarea id="noteContentInput" class="form-textarea" placeholder="Escribe tus notas, cálculos preliminares, hipótesis de campo o reflexiones metodológicas..." required></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="noteImageInput">URL de Imagen o Gráfica (opcional)</label>
+            <input type="url" id="noteImageInput" class="form-input" placeholder="https://images.unsplash.com/...">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="noteCaptionInput">Pie de Foto / Descripción</label>
+            <input type="text" id="noteCaptionInput" class="form-input" placeholder="Curva de temperatura en pirólisis">
+          </div>
+        </div>
+
+        <div style="background: var(--bg-paper-alt); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; border: 1px dashed var(--border-medium);">
+          <span style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; color: var(--earth-bark); display: block; margin-bottom: 0.5rem;">
+            Vínculo / Referencia Externa (Opcional)
+          </span>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <input type="text" id="noteRefTextInput" class="form-input" placeholder="Título o DOI del artículo">
+            <input type="url" id="noteRefUrlInput" class="form-input" placeholder="Enlace web (https://...)">
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+          <button type="button" id="cancelAddNoteBtn" class="btn btn-tertiary">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar en Bitácora</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER EDITORIAL -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-bio-title">César Ruiz-Camou</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 1rem;">
+            Investigador en Ciencias de la Sostenibilidad y Analista de Ciclo de Vida (LCA) en EarthShift Global.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Navegación</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="articles.html">Artículos &amp; Publicaciones</a></li>
+            <li><a href="notes.html">Cuaderno de Notas</a></li>
+            <li><a href="about.html">Sobre Mí</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-links-title">Enlaces Académicos</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://scholar.google.com/citations?user=psxAbFAAAAAJ&hl=es" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></li>
+            <li><a href="https://www.earthshiftglobal.com" target="_blank" rel="noopener noreferrer">EarthShift Global ↗</a></li>
+            <li><a href="javascript:void(0)" onclick="openLoginModal()" style="color: var(--text-faint); font-size: 0.78rem;">Acceso para Autores</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom" title="Triple clic para acceso desarrollador">
+        <div>© 2026 César Ruiz-Camou • Cuaderno Científico &amp; Blog de Sostenibilidad.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

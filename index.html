@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>César Ruiz-Camou | Sostenibilidad, ACV y Divulgación Científica</title>
+  <meta name="description" content="Blog personal y cuaderno de investigación científica de César Ruiz-Camou. Análisis de Ciclo de Vida (LCA), bioenergía, mezcal tradicional, reciclaje de RAEE y sustentabilidad.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Identity Services SDK (GCP: lca-studio-509602) -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <!-- Chart.js para visualizaciones científicas interactivas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN SUPERIOR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-name">César Ruiz-Camou</span>
+        <span class="brand-tag">Ciencia & ACV</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link active">Inicio</a></li>
+          <li><a href="articles.html" class="nav-link">Publicaciones & Artículos</a></li>
+          <li><a href="notes.html" class="nav-link">Cuaderno de Notas</a></li>
+          <li><a href="about.html" class="nav-link">Sobre Mí</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://scholar.google.com/citations?user=psxAbFAAAAAJ&hl=es" target="_blank" rel="noopener noreferrer" class="btn btn-tertiary btn-sm">
+          <span>🎓</span> Google Académico
+        </a>
+        <!-- Acceso a Google Docs Editor para César/Dev -->
+        <a href="editor.html" class="btn btn-blue btn-sm auth-edit-btn" style="display: none;">
+          <span>✍</span> Editor Docs
+        </a>
+        <a href="notes.html" class="btn btn-primary btn-sm">
+          <span>📓</span> Bitácora
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO EDITORIAL (Inspirado en diseño tipo papel cálido y tipografía serif) -->
+  <section class="hero-editorial">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge-pill">
+          <span class="pulse-dot"></span>
+          <span>Analista de Sostenibilidad • EarthShift Global & UNAM</span>
+        </div>
+
+        <h1 class="hero-title">
+          Investigación, rigor ambiental y <em>cuaderno de campo</em> sobre sustentabilidad.
+        </h1>
+
+        <p class="hero-lead">
+          Espacio personal dedicado al <span class="paper-mark">Análisis de Ciclo de Vida (ACV)</span>, la valorización de biomasa en cadenas tradicionales de <span class="paper-mark">mezcal en Michoacán</span>, y la recuperación de metales críticos en residuos electrónicos.
+        </p>
+
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <a href="articles.html" class="btn btn-blue">
+            Explorar Publicaciones Científicas →
+          </a>
+          <a href="notes.html" class="btn btn-secondary">
+            Abrir Bitácora & Notas
+          </a>
+        </div>
+
+        <div class="hero-meta-stats">
+          <div class="stat-item">
+            <span class="stat-num">ACV</span>
+            <span class="stat-label">Metodología ISO 14040/44</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">UNAM</span>
+            <span class="stat-label">M.Sc. en Sostenibilidad</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">-55%</span>
+            <span class="stat-label">Huella en Mezcal Circular</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta del Investigador -->
+      <aside class="hero-card-author">
+        <div class="author-header">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: #E4D9CA; display: flex; align-items: center; justify-content: center; font-family: var(--font-serif); font-size: 1.8rem; color: #5C4332; border: 2px solid #D4C4B0;">
+            CR
+          </div>
+          <div>
+            <h3 class="author-name">César Ruiz-Camou</h3>
+            <p class="author-role">Investigador en Ciencias de Materiales y Sostenibilidad</p>
+          </div>
+        </div>
+
+        <p class="author-bio-snippet">
+          Egresado de la <strong>UNAM</strong> (Ciencia de Materiales Sustentables y Maestría en Ciencias de la Sostenibilidad). Especializado en modelado ambiental con <em>SimaPro</em>, huellas de carbono y agua, y consultoría técnica en <em>EarthShift Global</em>.
+        </p>
+
+        <div class="author-badges-list">
+          <span class="tag tag-blue">Life Cycle Assessment</span>
+          <span class="tag tag-sage">Biomasa & Bioenergía</span>
+          <span class="tag tag-terracotta">Agave cupreata</span>
+          <span class="tag tag-blue">Reciclaje RAEE</span>
+          <span class="tag tag-sage">Economía Circular</span>
+        </div>
+
+        <div class="author-links-row">
+          <a href="https://scholar.google.com/citations?user=psxAbFAAAAAJ&hl=es" target="_blank" rel="noopener noreferrer" style="font-size: 0.85rem; font-weight: 600;">
+            ↗ Perfil en Google Scholar
+          </a>
+          <span style="color: var(--border-medium);">|</span>
+          <a href="about.html" style="font-size: 0.85rem; color: var(--text-secondary);">
+            CV Académico
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE ARTÍCULOS DESTACADOS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="sub-title">01 • Producción Académica</span>
+          <h2 class="section-title">Artículos & Investigaciones Principales</h2>
+        </div>
+        <div style="display: flex; gap: 0.75rem; align-items: center;">
+          <a href="editor.html?target=article" class="btn btn-blue btn-sm auth-edit-btn" style="display: none;">
+            + Redactar Artículo (Docs)
+          </a>
+          <a href="articles.html" class="btn btn-tertiary btn-sm">Ver todas las publicaciones →</a>
+        </div>
+      </div>
+
+      <div class="articles-grid">
+        <!-- Artículo 1: Mezcal LCA -->
+        <article class="article-card">
+          <div class="article-card-meta">
+            <span class="journal-name">Int J Life Cycle Assess (2023)</span>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="tag tag-sage">Artículo Arbitrado</span>
+              <a href="editor.html?editArticle=art-mezcal-lca" class="btn btn-tertiary btn-sm auth-edit-btn" style="display: none; padding: 1px 6px; font-size: 0.72rem; color: #1D4ED8;">
+                ✏ Editar
+              </a>
+            </div>
+          </div>
+
+          <h3 class="article-card-title">
+            <a href="article-mezcal.html">Evaluating the environmental performance of mezcal production in Michoacán, México: A life cycle assessment approach</a>
+          </h3>
+
+          <div class="article-card-figure-preview">
+            <svg viewBox="0 0 320 80" width="100%" height="80">
+              <rect x="10" y="25" width="55" height="30" rx="4" fill="#E8E2D6" stroke="#7C5E4A" stroke-width="1.5"/>
+              <text x="37" y="44" font-size="9" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" fill="#1F2328">Agave</text>
+              <line x1="65" y1="40" x2="85" y2="40" stroke="#7C5E4A" stroke-width="1.5" stroke-dasharray="2,2"/>
+              
+              <rect x="85" y="25" width="55" height="30" rx="4" fill="#E8E2D6" stroke="#7C5E4A" stroke-width="1.5"/>
+              <text x="112" y="44" font-size="9" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" fill="#1F2328">Cocción</text>
+              <line x1="140" y1="40" x2="160" y2="40" stroke="#7C5E4A" stroke-width="1.5" stroke-dasharray="2,2"/>
+
+              <rect x="160" y="25" width="60" height="30" rx="4" fill="#E8F0FE" stroke="#1D4ED8" stroke-width="1.5"/>
+              <text x="190" y="44" font-size="9" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" fill="#1D4ED8">Destilación</text>
+              <line x1="220" y1="40" x2="240" y2="40" stroke="#1D4ED8" stroke-width="1.5"/>
+
+              <rect x="240" y="20" width="70" height="40" rx="4" fill="#EBF3EE" stroke="#3D6853" stroke-width="1.5"/>
+              <text x="275" y="38" font-size="8.5" text-anchor="middle" font-weight="600" font-family="'Plus Jakarta Sans', sans-serif" fill="#3D6853">Biochar &amp;</text>
+              <text x="275" y="50" font-size="8" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" fill="#3D6853">Biogás</text>
+            </svg>
+          </div>
+
+          <p class="article-card-excerpt">
+            Evaluación integral de impactos ambientales (cambio climático, eutrofización y consumo de agua) en la producción artesanal con <em>Agave cupreata</em>. Modela alternativas para aprovechar vinazas y bagazo reduciendo hasta un 55% de la huella de carbono.
+          </p>
+
+          <div class="article-authors-snippet">
+            <strong>Autores:</strong> C. Ruiz-Camou, J. Núñez, R. Musule
+          </div>
+
+          <div class="article-card-footer">
+            <button class="btn btn-tertiary btn-sm" onclick="copyBibtexCitation('mezcal')">
+              📋 Citar (BibTeX)
+            </button>
+            <a href="article-mezcal.html" class="article-read-link">
+              Leer Estudio Completo →
+            </a>
+          </div>
+        </article>
+
+        <!-- Artículo 2: Indium Recycling -->
+        <article class="article-card">
+          <div class="article-card-meta">
+            <span class="journal-name">UNAM • ENES Morelia (2020)</span>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="tag tag-terracotta">Tesis de Grado</span>
+              <a href="editor.html?editArticle=art-indium-recycling" class="btn btn-tertiary btn-sm auth-edit-btn" style="display: none; padding: 1px 6px; font-size: 0.72rem; color: #1D4ED8;">
+                ✏ Editar
+              </a>
+            </div>
+          </div>
+
+          <h3 class="article-card-title">
+            <a href="article-indium.html">Reciclaje de indio mediante lixiviación ácida a partir de LCD de residuos electrónicos (RAEE)</a>
+          </h3>
+
+          <div class="article-card-figure-preview">
+            <svg viewBox="0 0 320 80" width="100%" height="80">
+              <rect x="15" y="25" width="70" height="30" rx="4" fill="#FAF7F2" stroke="#8C4A32" stroke-width="1.5"/>
+              <text x="50" y="44" font-size="8.5" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" fill="#1F2328">Pantallas LCD</text>
+              
+              <line x1="85" y1="40" x2="115" y2="40" stroke="#8C4A32" stroke-width="1.5"/>
+              <rect x="115" y="25" width="90" height="30" rx="4" fill="#FDF3E7" stroke="#8C4A32" stroke-width="1.5"/>
+              <text x="160" y="44" font-size="8.5" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" fill="#8C4A32">Lixiviación HCl/H₂SO₄</text>
+
+              <line x1="205" y1="40" x2="235" y2="40" stroke="#8C4A32" stroke-width="1.5"/>
+              <rect x="235" y="20" width="70" height="40" rx="4" fill="#E8F0FE" stroke="#1A73E8" stroke-width="1.5"/>
+              <text x="270" y="38" font-size="9" text-anchor="middle" font-weight="600" font-family="'Plus Jakarta Sans', sans-serif" fill="#1A73E8">Indio (In)</text>
+              <text x="270" y="50" font-size="8" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" fill="#1A73E8">> 88% Pureza</text>
+            </svg>
+          </div>
+
+          <p class="article-card-excerpt">
+            Estudio experimental para la recuperación hidrometalúrgica de indio a partir de electrodos transparentes (ITO) de pantallas descartadas. Análisis cinético y propuesta para economía circular de metales críticos en México.
+          </p>
+
+          <div class="article-authors-snippet">
+            <strong>Autor:</strong> César Rodrigo Ruiz Camou
+          </div>
+
+          <div class="article-card-footer">
+            <button class="btn btn-tertiary btn-sm" onclick="copyBibtexCitation('indium')">
+              📋 Citar (BibTeX)
+            </button>
+            <a href="article-indium.html" class="article-read-link">
+              Ver Metodología & Gráficas →
+            </a>
+          </div>
+        </article>
+
+        <!-- Artículo 3: Libro Temas Selectos -->
+        <article class="article-card">
+          <div class="article-card-meta">
+            <span class="journal-name">Editorial UNAM / IIM (2023)</span>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span class="tag tag-blue">Capítulo de Libro</span>
+              <a href="editor.html?editArticle=art-temas-selectos" class="btn btn-tertiary btn-sm auth-edit-btn" style="display: none; padding: 1px 6px; font-size: 0.72rem; color: #1D4ED8;">
+                ✏ Editar
+              </a>
+            </div>
+          </div>
+
+          <h3 class="article-card-title">
+            <a href="articles.html#temas-selectos">Temas Selectos en Ciencia de Materiales y Nanotecnología</a>
+          </h3>
+
+          <div class="article-card-figure-preview" style="background: #F8F5F0;">
+            <div style="font-family: var(--font-serif); font-size: 1rem; color: #58534C; text-align: center; padding: 0.5rem 0;">
+              <em>Toma de decisiones multicriterio para materiales sustentables</em>
+            </div>
+          </div>
+
+          <p class="article-card-excerpt">
+            Coautoría en el volumen compilatorio del Instituto de Investigaciones en Materiales de la UNAM. Enfoque en criterios metodológicos para evaluar la transición hacia nuevos componentes de bajo impacto ecológico.
+          </p>
+
+          <div class="article-authors-snippet">
+            <strong>Coautores:</strong> J. Núñez González, C. R. Ruiz Camou, J. De la Torre Medina
+          </div>
+
+          <div class="article-card-footer">
+            <button class="btn btn-tertiary btn-sm" onclick="copyBibtexCitation('libro')">
+              📋 Citar (BibTeX)
+            </button>
+            <a href="articles.html#temas-selectos" class="article-read-link">
+              Consultar Ficha →
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN INTERACTIVA: SANDBOX CIENTÍFICO DE ACV -->
+  <section class="section section-paper">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="sub-title">02 • Laboratorio Interactivo de Datos</span>
+          <h2 class="section-title">Explorador de Ciclo de Vida (LCA Sandbox)</h2>
+        </div>
+        <p style="max-width: 480px; font-size: 0.92rem; color: var(--text-secondary);">
+          Visualiza los datos del estudio de impacto ambiental del mezcal en Michoacán. Compara la línea base artesanal frente a escenarios de valorización de residuos (biogás y biochar).
+        </p>
+      </div>
+
+      <div class="lca-interactive-sandbox">
+        <!-- Controles dinámicos -->
+        <div class="sandbox-controls-row">
+          <div class="control-group">
+            <label class="control-label" for="lcaMetricSelect">Categoría de Impacto Ambiental</label>
+            <select id="lcaMetricSelect" class="select-custom">
+              <option value="gwp" selected>Potencial de Calentamiento Global (kg CO₂ eq)</option>
+              <option value="eutrophication">Eutrofización de Agua Dulce (g P eq)</option>
+              <option value="water">Consumo de Agua (Litros H₂O)</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="lcaScenarioSelect">Modo de Comparación</label>
+            <select id="lcaScenarioSelect" class="select-custom">
+              <option value="comparison" selected>Comparar Todos los Escenarios</option>
+              <option value="baseline">Solo Línea Base (Tradicional)</option>
+              <option value="biogas">Solo Biodigestión de Vinazas</option>
+              <option value="circular">Solo Economía Circular (Biochar + Biogás)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Escenario gráfico + KPIs -->
+        <div class="chart-stage-container">
+          <div class="chart-canvas-wrap">
+            <canvas id="lcaImpactChart"></canvas>
+          </div>
+
+          <div class="chart-legend-box">
+            <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-primary);">
+              Resumen de Resultados por Litro
+            </h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+              Unidad funcional: 1 litro de mezcal al 48% alc. vol. destilado en Michoacán a partir de <em>Agave cupreata</em>.
+            </p>
+
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-value" id="kpiBaselineVal">7.90</div>
+                <div class="kpi-label">Línea Base Tradicional</div>
+              </div>
+              <div class="kpi-card" style="border-left: 3px solid var(--leaf-sage);">
+                <div class="kpi-value" id="kpiOptVal" style="color: var(--leaf-sage);">3.55</div>
+                <div class="kpi-label">Escenario Circular</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 0.75rem; background: var(--bg-highlight); border-radius: var(--radius-sm); font-size: 0.82rem; color: #1E3A8A;">
+              <strong>Reducción neta estimada:</strong> <span id="kpiReductVal" style="font-weight: 700;">-55.1%</span> de impacto ambiental al valorizar vinazas para biogás y pirolizar bagazo para biochar.
+            </div>
+
+            <div style="margin-top: 1.25rem;">
+              <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); font-weight: 600;">Unidad de medida:</span>
+              <div id="kpiUnitDisplay" style="font-family: var(--font-mono); font-size: 0.84rem; color: var(--text-primary); margin-top: 2px;">
+                kg CO₂ eq / Litro de mezcal
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN DE BITÁCORA & NOTAS CIENTÍFICAS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-title-wrap">
+          <span class="sub-title">03 • Bitácora &amp; Notas de Campo</span>
+          <h2 class="section-title">Reflexiones, Enlaces &amp; Observaciones</h2>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <a href="editor.html?target=note" class="btn btn-blue btn-sm auth-edit-btn" style="display: none;">
+            ✍ Redactar en Docs
+          </a>
+          <a href="notes.html" class="btn btn-primary btn-sm">Abrir Cuaderno Completo 📓</a>
+        </div>
+      </div>
+
+      <!-- Feed simplificado de notas recientes -->
+      <div class="notes-layout-grid">
+        <!-- Sidebar de filtros y estado -->
+        <aside class="notes-sidebar-card">
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.75rem;">Buscar en la Bitácora</h4>
+          <input type="text" id="notesSearchInput" class="form-input" placeholder="Buscar palabras clave, agave, LCA..." style="margin-bottom: 1.25rem;">
+
+          <h5 style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--earth-bark); margin-bottom: 0.75rem;">Temas &amp; Categorías</h5>
+          <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+            <button class="btn btn-tertiary btn-sm tag-filter-btn active" data-tag="all" style="justify-content: flex-start;">
+              📁 Todas las notas
+            </button>
+            <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="LCA" style="justify-content: flex-start;">
+              📊 Análisis de Ciclo de Vida
+            </button>
+            <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="Mezcal" style="justify-content: flex-start;">
+              🌱 Mezcal &amp; Michoacán
+            </button>
+            <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="RAEE" style="justify-content: flex-start;">
+              ⚡ RAEE &amp; Materiales
+            </button>
+            <button class="btn btn-tertiary btn-sm tag-filter-btn" data-tag="Biochar" style="justify-content: flex-start;">
+              🍂 Biochar &amp; Suelo
+            </button>
+          </div>
+
+          <div style="margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-subtle);">
+            <button id="openAddNoteBtn" class="btn btn-blue" style="width: 100%;">
+              + Agregar Nueva Entrada
+            </button>
+          </div>
+        </aside>
+
+        <!-- Contenedor del stream de notas -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+            <span id="notesCountDisplay" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--earth-bark); font-weight: 500;">
+              Cargando notas...
+            </span>
+            <div style="display: flex; gap: 0.5rem;">
+              <button id="exportNotesBtn" class="btn btn-tertiary btn-sm" title="Descargar copia de seguridad en JSON">
+                💾 Exportar JSON
+              </button>
+            </div>
+          </div>
+
+          <div id="notesContainer" class="notes-list-stream">
+            <!-- Las notas se renderizan dinámicamente mediante app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL: AGREGAR NUEVA NOTA / ENTRADA -->
+  <div id="addNoteModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="font-family: var(--font-serif); font-size: 1.4rem;">Nueva Entrada en Bitácora Científica</h3>
+        <button id="closeAddNoteBtn" class="close-modal-btn">&times;</button>
+      </div>
+
+      <form id="newNoteForm">
+        <div class="form-group">
+          <label class="form-label" for="noteTitleInput">Título de la Nota / Observación *</label>
+          <input type="text" id="noteTitleInput" class="form-input" placeholder="Ej. Medición de pH en lixiviados de bagazo en Etúcuaro" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="noteCategoryInput">Categoría Principal</label>
+            <input type="text" id="noteCategoryInput" class="form-input" placeholder="Ej. Campo & Mezcal, ACV, RAEE">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="noteTagsInput">Etiquetas (separadas por coma)</label>
+            <input type="text" id="noteTagsInput" class="form-input" placeholder="LCA, Michoacán, Datos, Suelo">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="noteContentInput">Contenido / Reflexión Científica *</label>
+          <textarea id="noteContentInput" class="form-textarea" placeholder="Escribe tus notas, cálculos preliminares, hipótesis de campo o reflexiones metodológicas..." required></textarea>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="noteImageInput">URL de Imagen o Gráfica (opcional)</label>
+            <input type="url" id="noteImageInput" class="form-input" placeholder="https://ejemplo.com/grafica.jpg">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="noteCaptionInput">Pie de Foto / Descripción</label>
+            <input type="text" id="noteCaptionInput" class="form-input" placeholder="Curva de temperatura en pirólisis">
+          </div>
+        </div>
+
+        <div style="background: var(--bg-paper-alt); padding: 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; border: 1px dashed var(--border-medium);">
+          <span style="font-size: 0.82rem; font-weight: 600; text-transform: uppercase; color: var(--earth-bark); display: block; margin-bottom: 0.5rem;">
+            Vínculo / Referencia Externa (Opcional)
+          </span>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <input type="text" id="noteRefTextInput" class="form-input" placeholder="Nombre: Art. DOI / Repositorio UNAM">
+            <input type="url" id="noteRefUrlInput" class="form-input" placeholder="URL: https://...">
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+          <button type="button" id="cancelAddNoteBtn" class="btn btn-tertiary">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar en Bitácora</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER EDITORIAL CON ACCESO OCULTO PARA DESARROLLADOR -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3 class="footer-bio-title">César Ruiz-Camou</h3>
+          <p style="font-size: 0.92rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 1rem;">
+            Investigador en Ciencias de la Sostenibilidad y Analista de Ciclo de Vida (LCA) en EarthShift Global. Apasionado por la economía circular, la valoración de residuos agroindustriales y la divulgación científica rigurosa y accesible.
+          </p>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <span class="tag tag-sage">UNAM Posgrado</span>
+            <span class="tag tag-blue">EarthShift Global</span>
+            <span class="tag tag-terracotta">Michoacán &amp; Agave</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-links-title">Navegación</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Inicio &amp; Destacados</a></li>
+            <li><a href="articles.html">Artículos &amp; Publicaciones</a></li>
+            <li><a href="notes.html">Cuaderno de Notas &amp; Bitácora</a></li>
+            <li><a href="article-mezcal.html">Estudio ACV Mezcal Michoacán</a></li>
+            <li><a href="about.html">Biografía &amp; Currículum</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-links-title">Enlaces Académicos</h4>
+          <ul class="footer-links-list">
+            <li><a href="https://scholar.google.com/citations?user=psxAbFAAAAAJ&hl=es" target="_blank" rel="noopener noreferrer">Google Scholar Oficial ↗</a></li>
+            <li><a href="https://www.researchgate.net" target="_blank" rel="noopener noreferrer">ResearchGate ↗</a></li>
+            <li><a href="https://repositorio.unam.mx" target="_blank" rel="noopener noreferrer">Repositorio TESIUNAM ↗</a></li>
+            <li><a href="https://www.earthshiftglobal.com" target="_blank" rel="noopener noreferrer">EarthShift Global ↗</a></li>
+            <li><a href="javascript:void(0)" onclick="openLoginModal()" style="color: var(--text-faint); font-size: 0.78rem;">Acceso para Autores</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- El triple clic en esta sección abre el panel secreto de desarrollador -->
+      <div class="footer-bottom" title="Triple clic para acceso desarrollador">
+        <div>
+          © 2026 César Ruiz-Camou • Cuaderno Científico &amp; Blog de Sostenibilidad.
+        </div>
+        <div>
+          Diseñado con estética editorial de papel y datos abiertos.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS ORDENADOS -->
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

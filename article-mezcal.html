@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACV de la Producción de Mezcal en Michoacán | César Ruiz-Camou</title>
+  <meta name="description" content="Artículo y estudio de Análisis de Ciclo de Vida (LCA) de mezcal artesanal de Agave cupreata en Michoacán, México.">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Identity Services SDK -->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN SUPERIOR -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-name">César Ruiz-Camou</span>
+        <span class="brand-tag">Ciencia & ACV</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Inicio</a></li>
+          <li><a href="articles.html" class="nav-link active">Publicaciones & Artículos</a></li>
+          <li><a href="notes.html" class="nav-link">Cuaderno de Notas</a></li>
+          <li><a href="about.html" class="nav-link">Sobre Mí</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="editor.html?editArticle=art-mezcal-lca" class="btn btn-blue btn-sm auth-edit-btn" style="display: none;">
+          ✏ Editar en Docs
+        </a>
+        <button class="btn btn-tertiary btn-sm" onclick="copyBibtexCitation('mezcal')">
+          📋 Citar BibTeX
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CABECERA DEL ARTÍCULO (Formato Editorial Científico) -->
+  <article>
+    <header class="section" style="padding-top: 4rem; padding-bottom: 3rem; background: #FAF7F2; border-bottom: 1px solid var(--border-subtle);">
+      <div class="container-narrow">
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; align-items: center; justify-content: space-between;">
+          <div style="display: flex; gap: 0.5rem; align-items: center;">
+            <span class="tag tag-sage">The International Journal of Life Cycle Assessment</span>
+            <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--earth-bark);">Springer • 2023</span>
+          </div>
+          <a href="editor.html?editArticle=art-mezcal-lca" class="btn btn-tertiary btn-sm auth-edit-btn" style="display: none; color: #1D4ED8;">
+            ✏ Editar Estudio en Docs
+          </a>
+        </div>
+
+        <h1 style="font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 2.9rem); line-height: 1.2; margin-bottom: 1.25rem;">
+          Evaluating the environmental performance of mezcal production in Michoacán, México: <span class="paper-mark">A life cycle assessment approach</span>
+        </h1>
+
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
+          <div style="font-size: 0.95rem; color: var(--text-primary);">
+            <strong>César Ruiz-Camou</strong><sup>1,2*</sup>, <strong>José Núñez</strong><sup>1</sup>, <strong>Ricardo Musule</strong><sup>1</sup>
+          </div>
+        </div>
+
+        <div style="font-size: 0.84rem; color: var(--text-muted); line-height: 1.5; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+          <sup>1</sup> Posgrado en Ciencias de la Sostenibilidad / Escuela Nacional de Estudios Superiores Unidad Morelia, UNAM.<br>
+          <sup>2</sup> EarthShift Global, Sostenibilidad y Análisis de Ciclo de Vida.<br>
+          * Autor de correspondencia. DOI: <a href="https://doi.org/10.1007/s11367-023-02220-4" target="_blank" rel="noopener noreferrer">10.1007/s11367-023-02220-4</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- CUERPO DEL ARTÍCULO -->
+    <div class="section">
+      <div class="container-narrow">
+        
+        <!-- CALLOUT DE PUNTOS CLAVE (HIGHLIGHTS) -->
+        <div style="background: #FFFFFF; border-left: 4px solid var(--ink-blue); padding: 1.5rem 1.75rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; box-shadow: var(--shadow-sm); margin-bottom: 3rem;">
+          <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--text-primary);">
+            Aspectos Destacados de la Investigación (Research Highlights):
+          </h4>
+          <ul style="padding-left: 1.25rem; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7;">
+            <li>Primer estudio exhaustivo de Análisis de Ciclo de Vida (ACV) para la producción artesanal de mezcal a partir de <em>Agave cupreata</em> en Michoacán.</li>
+            <li>El consumo de leña en el alambique de destilación y en el horno cónico representa más del <strong>68%</strong> del potencial de calentamiento global en la línea base (7.90 kg CO₂ eq / L).</li>
+            <li>El vertido de vinazas sin neutralizar aporta el <strong>72%</strong> del impacto de eutrofización de agua dulce.</li>
+            <li>El escenario de economía circular (biodigestión anaerobia de vinaza + pirólisis de bagazo en biochar) reduce la huella de carbono total en un <strong>55.1%</strong> y la eutrofización en un <strong>85.1%</strong>.</li>
+          </ul>
+        </div>
+
+        <!-- SECCIÓN 1: INTRODUCCIÓN Y CONTEXTO -->
+        <section style="margin-bottom: 3rem;">
+          <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 1rem;">1. Introducción y Contexto Socioambiental</h2>
+          <p style="margin-bottom: 1.25rem;">
+            El mezcal tradicional de Michoacán es un destilado con profunda identidad biocultural, elaborado predominantemente a partir del maguey papalote o chino (<em>Agave cupreata</em>). A diferencia del tequila industrializado, las vinatas michoacanas operan en escalas artesanales y familiares en zonas de sierra, dependiendo de recursos forestales locales (leña de encino y pino) y manantiales limpios.
+          </p>
+          <p style="margin-bottom: 1.25rem;">
+            Sin embargo, el vertiginoso auge de la demanda nacional e internacional ha incrementado la presión sobre los ecosistemas locales. Por cada litro de mezcal terminado, se generan en promedio:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+            <div style="background: var(--bg-paper-alt); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); text-align: center;">
+              <span style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--earth-terracotta); font-weight: 600; display: block;">10 a 15 kg</span>
+              <span style="font-size: 0.85rem; color: var(--text-secondary);">Bagazo húmedo residual con alto contenido de lignocelulosa</span>
+            </div>
+            <div style="background: var(--bg-paper-alt); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); text-align: center;">
+              <span style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--ink-blue-dark); font-weight: 600; display: block;">10 a 12 L</span>
+              <span style="font-size: 0.85rem; color: var(--text-secondary);">Vinazas hiperácidas (pH &lt; 4.0, DQO &gt; 40,000 mg/L)</span>
+            </div>
+            <div style="background: var(--bg-paper-alt); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); text-align: center;">
+              <span style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--leaf-sage); font-weight: 600; display: block;">12 a 16 kg</span>
+              <span style="font-size: 0.85rem; color: var(--text-secondary);">Leña consumida para cocción en foso cónico y destilación</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 2: DIAGRAMA DE LÍMITES DEL SISTEMA -->
+        <section style="margin-bottom: 3.5rem;">
+          <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 1rem;">2. Límites del Sistema (Cradle-to-Gate)</h2>
+          <p style="margin-bottom: 1.25rem;">
+            Se definió como <strong>Unidad Funcional</strong> 1 litro de mezcal artesanal al 48% de alcohol en volumen listo en planta. Los límites del sistema abarcan desde la propagación de hijuelos y cultivo de agave durante 7-9 años, la cosecha y jima, el transporte a la vinata, la cocción subterránea, molienda, fermentación natural en tinas de madera, doble destilación discontinua en alambique de cobre, y el tratamiento final de subproductos.
+          </p>
+
+          <div style="background: #FFFFFF; border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-sm); margin: 2rem 0;">
+            <h4 style="font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 1.25rem; text-align: center;">
+              Flujo de Masa y Energía en la Cadena del Mezcal (ISO 14040/44)
+            </h4>
+
+            <svg viewBox="0 0 760 220" width="100%" height="auto" style="display: block; margin: 0 auto;">
+              <!-- Fase 1: Cultivo -->
+              <rect x="10" y="30" width="120" height="70" rx="6" fill="#F4EFE6" stroke="#7C5E4A" stroke-width="1.5"/>
+              <text x="70" y="60" font-family="'Fraunces', serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1F2328">Cultivo Agave</text>
+              <text x="70" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" text-anchor="middle" fill="#58534C">7 a 9 años • Jima</text>
+
+              <line x1="130" y1="65" x2="160" y2="65" stroke="#7C5E4A" stroke-width="2"/>
+
+              <!-- Fase 2: Cocción -->
+              <rect x="160" y="30" width="120" height="70" rx="6" fill="#FDF3E7" stroke="#8C4A32" stroke-width="1.5"/>
+              <text x="220" y="60" font-family="'Fraunces', serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1F2328">Horno Cónico</text>
+              <text x="220" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" text-anchor="middle" fill="#8C4A32">Piedra &amp; Leña</text>
+
+              <line x1="280" y1="65" x2="310" y2="65" stroke="#7C5E4A" stroke-width="2"/>
+
+              <!-- Fase 3: Molienda y Fermentación -->
+              <rect x="310" y="30" width="130" height="70" rx="6" fill="#F4EFE6" stroke="#7C5E4A" stroke-width="1.5"/>
+              <text x="375" y="55" font-family="'Fraunces', serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1F2328">Fermentación</text>
+              <text x="375" y="73" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" text-anchor="middle" fill="#58534C">Tinas de madera</text>
+              <text x="375" y="87" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" text-anchor="middle" fill="#857D73">Levaduras nativas</text>
+
+              <line x1="440" y1="65" x2="470" y2="65" stroke="#7C5E4A" stroke-width="2"/>
+
+              <!-- Fase 4: Destilación -->
+              <rect x="470" y="30" width="130" height="70" rx="6" fill="#E8F0FE" stroke="#1D4ED8" stroke-width="1.5"/>
+              <text x="535" y="55" font-family="'Fraunces', serif" font-size="13" font-weight="600" text-anchor="middle" fill="#1D4ED8">Doble Destilación</text>
+              <text x="535" y="73" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" text-anchor="middle" fill="#1E3A8A">Alambique cobre</text>
+              <text x="535" y="87" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" text-anchor="middle" fill="#1E3A8A">Leña combustible</text>
+
+              <line x1="600" y1="65" x2="630" y2="65" stroke="#1D4ED8" stroke-width="2"/>
+
+              <!-- Salida: Mezcal -->
+              <rect x="630" y="30" width="120" height="70" rx="6" fill="#1F2328" stroke="#1F2328" stroke-width="1.5"/>
+              <text x="690" y="60" font-family="'Fraunces', serif" font-size="13" font-weight="600" text-anchor="middle" fill="#FFFFFF">1 L Mezcal</text>
+              <text x="690" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" text-anchor="middle" fill="#DDD5C7">48% Alc. Vol.</text>
+
+              <!-- Conexión hacia abajo para Subproductos -->
+              <path d="M 535 100 L 535 150 L 375 150" fill="none" stroke="#3D6853" stroke-width="1.5" stroke-dasharray="4,4"/>
+              
+              <!-- Subproductos Circular -->
+              <rect x="230" y="130" width="280" height="65" rx="6" fill="#EBF3EE" stroke="#3D6853" stroke-width="1.5"/>
+              <text x="370" y="155" font-family="'Fraunces', serif" font-size="12" font-weight="600" text-anchor="middle" fill="#3D6853">Valorización de Residuos:</text>
+              <text x="370" y="175" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" text-anchor="middle" fill="#2C483A">Vinazas → Biogás | Bagazo → Biochar en suelo</text>
+            </svg>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 3: GRÁFICO INTERACTIVO DE IMPACTO Y ESCENARIOS -->
+        <section style="margin-bottom: 3.5rem;">
+          <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 1rem;">3. Análisis Comparativo de Escenarios</h2>
+          <p style="margin-bottom: 1.5rem;">
+            A través del motor de cálculo de <em>SimaPro</em> y el método ReCiPe 2016 Midpoint (H), se modelaron tres configuraciones operativas. Interactúa con el siguiente gráfico para explorar el comportamiento por etapa del ciclo de vida:
+          </p>
+
+          <div class="lca-interactive-sandbox" style="margin-bottom: 2rem;">
+            <div class="sandbox-controls-row">
+              <div class="control-group">
+                <label class="control-label" for="lcaMetricSelect">Métrica de Impacto Ambiental</label>
+                <select id="lcaMetricSelect" class="select-custom">
+                  <option value="gwp" selected>Calentamiento Global (kg CO₂ eq)</option>
+                  <option value="eutrophication">Eutrofización de Agua Dulce (g P eq)</option>
+                  <option value="water">Huella Hídrica Directa (Litros H₂O)</option>
+                </select>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="lcaScenarioSelect">Escenarios</label>
+                <select id="lcaScenarioSelect" class="select-custom">
+                  <option value="comparison" selected>Comparar Todos los Escenarios</option>
+                  <option value="baseline">Línea Base Tradicional</option>
+                  <option value="biogas">Valorización Biogás</option>
+                  <option value="circular">Circular Total (Biochar + Biogás)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="chart-stage-container">
+              <div class="chart-canvas-wrap">
+                <canvas id="lcaImpactChart"></canvas>
+              </div>
+
+              <div class="chart-legend-box">
+                <h4 style="font-family: var(--font-serif); font-size: 1.15rem; margin-bottom: 0.5rem;">Resumen Cuantitativo</h4>
+                <div class="kpi-grid">
+                  <div class="kpi-card">
+                    <div class="kpi-value" id="kpiBaselineVal">7.90</div>
+                    <div class="kpi-label">Línea Base</div>
+                  </div>
+                  <div class="kpi-card" style="border-left: 3px solid var(--leaf-sage);">
+                    <div class="kpi-value" id="kpiOptVal" style="color: var(--leaf-sage);">3.55</div>
+                    <div class="kpi-label">Escenario Circular</div>
+                  </div>
+                </div>
+                <div style="margin-top: 1rem; padding: 0.65rem 0.85rem; background: var(--bg-paper-alt); border-radius: var(--radius-sm); font-size: 0.8rem;">
+                  <strong>Diferencia Neta:</strong> <span id="kpiReductVal" style="font-weight: 700; color: var(--leaf-sage);">-55.1%</span>
+                </div>
+                <div id="kpiUnitDisplay" style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">
+                  kg CO₂ eq / Litro de mezcal
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECCIÓN 4: CONCLUSIONES Y RECOMENDACIONES -->
+        <section style="margin-bottom: 3.5rem;">
+          <h2 style="font-family: var(--font-serif); font-size: 1.75rem; margin-bottom: 1rem;">4. Conclusiones y Transferencia Tecnológica</h2>
+          <p style="margin-bottom: 1.25rem;">
+            La adopción de tecnologías circulares en comunidades mezcaleras no debe concebirse como una imposición externa, sino como una alianza con los maestros destiladores. La sustitución de leña por biogás alivia la presión sobre los bosques de pino-encino de Michoacán, mientras que la incorporación de biochar a parcelas agaveras mitiga el impacto de las sequías prolongadas inducidas por el cambio climático.
+          </p>
+        </section>
+
+        <!-- HERRAMIENTAS DE CITACIÓN Y BIBLIOGRAFÍA -->
+        <div style="background: var(--bg-paper-alt); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 2rem; margin-top: 3rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 0.75rem;">¿Cómo citar este artículo?</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+            Si utilizas los datos o metodologías de esta investigación en tus publicaciones, conferencias o tesis, por favor cita la fuente oficial:
+          </p>
+          <div style="background: #FFFFFF; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-primary); margin-bottom: 1.25rem; word-break: break-all;">
+            Ruiz-Camou, C., Núñez, J., &amp; Musule, R. (2023). Evaluating the environmental performance of mezcal production in Michoacán, México: A life cycle assessment approach. <em>The International Journal of Life Cycle Assessment</em>. https://doi.org/10.1007/s11367-023-02220-4
+          </div>
+          <div style="display: flex; gap: 0.75rem;">
+            <button class="btn btn-primary btn-sm" onclick="copyBibtexCitation('mezcal')">Copiar BibTeX</button>
+            <button class="btn btn-secondary btn-sm" onclick="copyApaCitation('mezcal')">Copiar APA</button>
+            <a href="https://scholar.google.com/citations?user=psxAbFAAAAAJ&hl=es" target="_blank" rel="noopener noreferrer" class="btn btn-tertiary btn-sm">Ver en Google Scholar ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </article>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" title="Triple clic para acceso desarrollador">
+        <div>© 2026 César Ruiz-Camou • Cuaderno Científico &amp; Blog de Sostenibilidad.</div>
+        <div><a href="articles.html">← Volver al índice de artículos</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

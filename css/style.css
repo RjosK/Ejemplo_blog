@@ -1,0 +1,1341 @@
+/* ==========================================================================
+   DESIGN SYSTEM: Editorial Scientific Paper & Field Journal
+   Inspirado en la estética de papel cálido, notas científicas y diseño editorial
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Paleta Cálida & Tonos Papel (Inspirado en Design System & Editorial) */
+  --bg-paper: #FAF7F2;
+  --bg-paper-alt: #F4EFE6;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #FDFBF8;
+  --bg-accent-light: #EBF1F8;
+  --bg-highlight: rgba(186, 214, 235, 0.45);
+  --bg-highlight-warm: rgba(247, 222, 185, 0.55);
+
+  /* Bordes sutiles y líneas de encuadernación */
+  --border-subtle: #E8E2D6;
+  --border-medium: #D4C9BA;
+  --border-strong: #A89B8B;
+
+  /* Colores de Tinta & Tipografía */
+  --text-primary: #1F2328;
+  --text-secondary: #58534C;
+  --text-muted: #857D73;
+  --text-faint: #ABA194;
+
+  /* Acentos Editoriales (Azul tinta, Terracota y Salvia) */
+  --ink-blue: #1D4ED8;
+  --ink-blue-dark: #1E3A8A;
+  --ink-blue-hover: #172554;
+  --earth-terracotta: #8C4A32;
+  --earth-sand: #D4C4B0;
+  --earth-bark: #7C5E4A;
+  --leaf-sage: #3D6853;
+  --leaf-sage-light: #EBF3EE;
+  
+  /* Sombras suaves tipo papel */
+  --shadow-sm: 0 1px 3px rgba(44, 39, 32, 0.05), 0 1px 2px rgba(44, 39, 32, 0.03);
+  --shadow-md: 0 4px 12px -1px rgba(44, 39, 32, 0.08), 0 2px 6px -1px rgba(44, 39, 32, 0.04);
+  --shadow-lg: 0 12px 28px -4px rgba(44, 39, 32, 0.12), 0 6px 12px -3px rgba(44, 39, 32, 0.06);
+  --shadow-paper: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(124, 94, 74, 0.06);
+
+  /* Tipografías */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radio de bordes */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transición */
+  --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset y Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--bg-paper);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background-color: var(--bg-paper);
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: radial-gradient(rgba(124, 94, 74, 0.035) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Selección de texto elegante */
+::selection {
+  background-color: #C6DBF0;
+  color: #0F172A;
+}
+
+/* Tipografía Editorial */
+h1, h2, h3, h4, .editorial-heading {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+}
+
+h3 {
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+a {
+  color: var(--ink-blue);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--ink-blue-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Marcador / Resaltador tipo libreta (Inspirado en Imagen 4) */
+.paper-mark {
+  background-color: var(--bg-highlight);
+  color: var(--text-primary);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  font-weight: 500;
+}
+
+.paper-mark-warm {
+  background-color: var(--bg-highlight-warm);
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+.container-narrow {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+/* ==========================================================================
+   NAVEGACIÓN SUPERIOR
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 247, 242, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: var(--transition);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.brand-logo .brand-name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.brand-logo .brand-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--earth-bark);
+  background: var(--bg-paper-alt);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 0.25rem 0;
+  text-decoration: none;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--ink-blue-dark);
+  text-decoration: none;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--ink-blue);
+  border-radius: 2px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* ==========================================================================
+   BOTONES (Inspirados en Component Library - Imagen 2)
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--text-primary);
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.btn-blue {
+  background-color: var(--ink-blue-dark);
+  color: #FFFFFF;
+}
+
+.btn-blue:hover {
+  background-color: var(--ink-blue);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.btn-secondary {
+  background-color: var(--earth-sand);
+  color: var(--text-primary);
+  border: 1px solid #C4B29E;
+}
+
+.btn-secondary:hover {
+  background-color: #C8B6A1;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+}
+
+.btn-tertiary:hover {
+  background-color: var(--bg-paper-alt);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.btn-sm {
+  font-size: 0.82rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-icon {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   TAGS & BADGES
+   ========================================================================== */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-paper-alt);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  letter-spacing: 0.02em;
+}
+
+.tag-blue {
+  background: #E8F0FE;
+  color: #1A73E8;
+  border-color: #D2E3FC;
+}
+
+.tag-sage {
+  background: var(--leaf-sage-light);
+  color: var(--leaf-sage);
+  border-color: #D3E6DA;
+}
+
+.tag-terracotta {
+  background: #FDF3E7;
+  color: var(--earth-terracotta);
+  border-color: #F8DFCE;
+}
+
+/* ==========================================================================
+   HERO EDITORIAL (Inspirado en Imagen 1 & Imagen 4)
+   ========================================================================== */
+.hero-editorial {
+  padding: 4.5rem 0 3.5rem;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(250,247,242,1) 100%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  color: var(--earth-bark);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.hero-badge-pill .pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #22C55E;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.hero-title {
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-blue-dark);
+}
+
+.hero-lead {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.hero-meta-stats {
+  display: flex;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border-medium);
+  margin-top: 2rem;
+}
+
+.stat-item .stat-num {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  display: block;
+  line-height: 1.1;
+}
+
+.stat-item .stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+/* Tarjeta de autor / Pasaporte científico en Hero */
+.hero-card-author {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-paper);
+  position: relative;
+}
+
+.hero-card-author::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px dashed var(--border-subtle);
+  border-radius: calc(var(--radius-lg) - 6px);
+  pointer-events: none;
+}
+
+.author-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.author-avatar-img {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--bg-paper);
+  box-shadow: var(--shadow-sm);
+  background: #E8E2D6;
+}
+
+.author-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.author-role {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.author-bio-snippet {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.author-badges-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.author-links-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   SECCIONES Y LAYOUTS
+   ========================================================================== */
+.section {
+  padding: 4.5rem 0;
+}
+
+.section-paper {
+  background-color: var(--bg-paper-alt);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.section-title-wrap .sub-title {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--earth-bark);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-title {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   CARDS DE ARTÍCULOS CIENTÍFICOS (Inspiradas en Imagen 1)
+   ========================================================================== */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.article-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.85rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+}
+
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-medium);
+}
+
+.article-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.article-card-meta .journal-name {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--earth-bark);
+}
+
+.article-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin-bottom: 0.85rem;
+  color: var(--text-primary);
+}
+
+.article-card-title a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.article-card-title a:hover {
+  color: var(--ink-blue-dark);
+}
+
+.article-card-excerpt {
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.article-card-figure-preview {
+  margin: -0.5rem -1.85rem 1.25rem -1.85rem;
+  background: var(--bg-paper-alt);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-card-figure-preview svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.article-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+
+.article-authors-snippet {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.article-read-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--ink-blue-dark);
+}
+
+/* ==========================================================================
+   SANDBOX INTERACTIVO DE LCA (Ciclo de Vida del Mezcal)
+   ========================================================================== */
+.lca-interactive-sandbox {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-paper);
+}
+
+.sandbox-header {
+  margin-bottom: 2rem;
+}
+
+.sandbox-controls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-paper-alt);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.control-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.select-custom, .input-custom {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  background: #FFFFFF;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition);
+}
+
+.select-custom:focus, .input-custom:focus {
+  border-color: var(--ink-blue);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15);
+}
+
+.chart-stage-container {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.chart-canvas-wrap {
+  position: relative;
+  min-height: 320px;
+  width: 100%;
+}
+
+.chart-legend-box {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.kpi-card {
+  padding: 0.85rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.kpi-value {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.kpi-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* ==========================================================================
+   BITÁCORA / CUADERNO DE NOTAS CIENTÍFICAS (Inspirado en Imagen 3 & 4)
+   ========================================================================== */
+.notes-layout-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2.5rem;
+}
+
+.notes-sidebar-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: sticky;
+  top: 96px;
+  box-shadow: var(--shadow-sm);
+}
+
+.notes-list-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.note-entry-card {
+  background: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+}
+
+.note-entry-card:hover {
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.note-entry-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.note-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--earth-bark);
+}
+
+.note-title {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  color: var(--text-primary);
+  margin-bottom: 0.85rem;
+  line-height: 1.3;
+}
+
+.note-body {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.note-body p {
+  margin-bottom: 1rem;
+}
+
+.note-references {
+  margin-top: 1.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-paper-alt);
+  border-left: 3px solid var(--ink-blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.85rem;
+}
+
+.note-references-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.note-references ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.note-references li {
+  margin-bottom: 0.25rem;
+  word-break: break-word;
+}
+
+.note-image-preview {
+  margin: 1.25rem 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-paper);
+}
+
+.note-image-preview img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+.note-caption {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: var(--bg-paper-alt);
+  font-style: italic;
+}
+
+/* ==========================================================================
+   MODAL / FORMULARIO PARA AGREGAR NUEVAS NOTAS
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(31, 35, 40, 0.6);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.5rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-paper);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  padding: 2.25rem;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  background: #FFFFFF;
+  color: var(--text-primary);
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  border-color: var(--ink-blue);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   FOOTER EDITORIAL
+   ========================================================================== */
+.site-footer {
+  margin-top: auto;
+  background: var(--bg-paper-alt);
+  border-top: 1px solid var(--border-subtle);
+  padding: 3.5rem 0 2.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.footer-bio-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-links-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--earth-bark);
+  margin-bottom: 1rem;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   TOAST NOTIFICACIONES
+   ========================================================================== */
+.toast-msg {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--text-primary);
+  color: #FFFFFF;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-lg);
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 9999;
+  animation: slideInUp 0.25s ease-out;
+}
+
+.toast-msg.show {
+  display: flex;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .chart-stage-container {
+    grid-template-columns: 1fr;
+  }
+  .notes-layout-grid {
+    grid-template-columns: 1fr;
+  }
+  .notes-sidebar-card {
+    position: static;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .header-inner {
+    height: auto;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .nav-menu {
+    gap: 1rem;
+  }
+}
+
+
+/* ==========================================================================
+   ESTILOS PARA MODO ESCRITOR & VISTA GOOGLE DOCS (editor.html)
+   ========================================================================== */
+
+/* Barra fija del autor César */
+.author-sticky-bar {
+  background: #0F172A;
+  color: #F8FAFC;
+  padding: 0.65rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  border-bottom: 2px solid var(--ink-blue);
+  box-shadow: var(--shadow-md);
+}
+
+/* Panel flotante de desarrollador */
+.dev-floating-panel {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: #0F172A;
+  color: #FFFFFF;
+  border: 1px solid #334155;
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  font-family: var(--font-sans);
+}
+
+.dev-panel-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.btn-dev-mode {
+  background: #1E293B;
+  color: #94A3B8;
+  border: 1px solid #334155;
+  font-size: 0.76rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.btn-dev-mode:hover, .btn-dev-mode.active {
+  background: #38BDF8;
+  color: #0F172A;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   ESTILOS DEL EDITOR TIPO GOOGLE DOCS
+   ========================================================================== */
+.docs-editor-body {
+  background-color: #EFEFEF;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.docs-header-bar {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E2E8F0;
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.docs-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.docs-doc-title-input {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #1E293B;
+  background: transparent;
+  width: 420px;
+  max-width: 100%;
+}
+
+.docs-doc-title-input:hover {
+  border-color: #CBD5E1;
+}
+
+.docs-doc-title-input:focus {
+  background: #FFFFFF;
+  border-color: var(--ink-blue);
+  outline: none;
+}
+
+.docs-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.6rem;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 24px;
+  overflow-x: auto;
+}
+
+.docs-tool-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition);
+}
+
+.docs-tool-btn:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+.docs-tool-btn.active {
+  background: #CBD5E1;
+  color: #0F172A;
+}
+
+.docs-toolbar-divider {
+  width: 1px;
+  height: 20px;
+  background: #CBD5E1;
+  margin: 0 4px;
+}
+
+/* Hoja de papel Google Docs */
+.docs-page-container {
+  flex-grow: 1;
+  padding: 2.5rem 1.5rem 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.docs-paper-sheet {
+  background: #FFFFFF;
+  width: 100%;
+  max-width: 840px;
+  min-height: 1050px;
+  padding: 4rem 4.5rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(60,64,67,0.15), 0 4px 8px rgba(60,64,67,0.08);
+  font-family: var(--font-sans);
+  color: #1F2328;
+  line-height: 1.75;
+  outline: none;
+  font-size: 1.05rem;
+  position: relative;
+}
+
+.docs-paper-sheet:focus {
+  outline: none;
+}
+
+.docs-paper-sheet h1 {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  margin: 1.5rem 0 1rem;
+  color: #0F172A;
+}
+
+.docs-paper-sheet h2 {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  margin: 1.25rem 0 0.75rem;
+  color: #0F172A;
+}
+
+.docs-paper-sheet h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  margin: 1rem 0 0.5rem;
+  color: #1E293B;
+}
+
+.docs-paper-sheet p {
+  margin-bottom: 1.15rem;
+}
+
+/* Bloques interactivos insertados en el documento */
+.doc-chart-block {
+  background: #FAF7F2;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin: 1.75rem 0;
+  user-select: none;
+}
+
+.doc-block-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.doc-block-controls {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.doc-image-block {
+  margin: 1.75rem 0;
+  text-align: center;
+}
+
+.doc-image-block img {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.doc-image-caption {
+  font-size: 0.84rem;
+  color: #64748B;
+  font-style: italic;
+  margin-top: 0.35rem;
+}
