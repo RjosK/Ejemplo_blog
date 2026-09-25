@@ -155,8 +155,8 @@ const initialNotes = [
 // Configuración predeterminada de Google Cloud & Auth
 const initialConfig = {
   googleProjectId: 'lca-studio-509602',
-  googleClientId: '', // El usuario puede configurarlo desde el panel o usar la sesión simulada
-  developerPin: 'dev123',
+  googleClientId: '968718859059-81u6bj6l4op1e0dsnblqg73ego8ns59j.apps.googleusercontent.com',
+  developerEmail: 'josuearenteriaz09@gmail.com',
   authorEmail: 'cesar.ruizcamou@gmail.com'
 };
 
