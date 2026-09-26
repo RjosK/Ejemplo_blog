@@ -407,7 +407,7 @@
             </button>
           </div>
 
-          <div style="margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-subtle);">
+          <div class="auth-edit-btn" style="display: none; width: 100%; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-subtle);">
             <button id="openAddNoteBtn" class="btn btn-blue" style="width: 100%;">
               + Agregar Nueva Entrada
             </button>
@@ -421,7 +421,7 @@
               Cargando notas...
             </span>
             <div style="display: flex; gap: 0.5rem;">
-              <button id="exportNotesBtn" class="btn btn-tertiary btn-sm" title="Descargar copia de seguridad en JSON">
+              <button id="exportNotesBtn" class="btn btn-tertiary btn-sm auth-edit-btn" style="display: none;" title="Descargar copia de seguridad en JSON">
                 💾 Exportar JSON
               </button>
             </div>
@@ -533,8 +533,7 @@
         </div>
       </div>
 
-      <!-- El triple clic en esta sección abre el panel secreto de desarrollador -->
-      <div class="footer-bottom" title="Triple clic para acceso desarrollador">
+            <div class="footer-bottom">
         <div>
           © 2026 César Ruiz-Camou • Cuaderno Científico &amp; Blog de Sostenibilidad.
         </div>
